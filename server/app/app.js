@@ -16,5 +16,6 @@ app.listen(app.get('port'), () => {
     console.log("SERVER ON: " , app.get('port'))
     connection.sync({ force: false }).then(() => {
         console.log("CONNECTION DONE")
+        //for run is npm run dev
     })
 })

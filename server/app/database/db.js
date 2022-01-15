@@ -20,4 +20,12 @@ db.connection = new Sequelize(
     }
 )
 
+// Vinculación de los modelos al DB
+db.User = require('./models/user')(db.connection, DataTypes);
+db.Project = require('./models/project')(db.connection, DataTypes);
+
+// Realiza las asociaciones declaradas en cada modelo
+db.User.associate(db.connection.models);
+db.Project.associate(db.connection.models);
+
 module.exports = db;
