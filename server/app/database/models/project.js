@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         Project.belongsToMany(models.User, {
             through: 'user_project',
             foreignKey: {
-                name: 'project',
+                name: 'project_id',
                 allowNull:false
             },
             timestamps: false

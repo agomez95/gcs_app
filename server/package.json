@@ -9,6 +9,9 @@
   "scripts": {
     "dev": "nodemon app/app.js"
   },
+  "comments": {
+    "comp": "cd server -> npm run dev"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,3 +25,4 @@
     "nodemon": "^2.0.15"
   }
 }
+
