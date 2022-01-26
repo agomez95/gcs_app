@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": {
-    "server": "wwww.js"
-  },
   "scripts": {
-    "dev": "nodemon app/app.js"
+    "dev": "nodemon server.js"
   },
   "comments": {
     "comp": "cd server -> npm run dev"
