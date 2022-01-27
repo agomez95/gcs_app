@@ -18,6 +18,8 @@ app.use('/projects',require('./api/routes/project'))
 app.use('/users_projects',require('./api/routes/user_project'))
 app.use('/methodologys', require('./api/routes/methodology'))
 app.use('/phases', require('./api/routes/phase'))
+app.use('/methods_projects', require('./api/routes/method_project'))
+app.use('/phases_methods_projects', require('./api/routes/phase_method_project'))
 
 module.exports = app
 
