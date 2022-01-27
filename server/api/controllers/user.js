@@ -11,6 +11,7 @@ exports.users_create_user = (req, res) => {
         lastname: req.body.lastname,
         email: req.body.email,
         password: req.body.password,
+        state: req.body.state,
         level: req.body.level
     })
     User.create(user, (err, data) => {
@@ -18,7 +19,6 @@ exports.users_create_user = (req, res) => {
             return res.status(500).json({
                 message: 'Something is wrong while creating a new User'
             })
-        }
-        else res.send(data)        
+        } else res.send(data)        
     })
 }

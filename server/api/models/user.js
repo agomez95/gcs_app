@@ -1,10 +1,11 @@
 const pool = require('../database/db')
 
-const User = function(user) {
+const User = (user) => {
     this.firstname = user.firstname
     this.lastname = user.lastname
     this.email = user.email
     this.password = user.password
+    this.state = user.state
     this.level = user.level
 }
 
