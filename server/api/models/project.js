@@ -40,7 +40,7 @@ Project.findByAuthor = async(userId, result) => {
         }            
         if(res.length){
             console.log('The project of the user '+ userId +' was found: ')            
-            result(null, res[0])
+            result(null, res)
             return
         }
         result({ kind: "not_found" }, null)
