@@ -58,7 +58,7 @@ exports.users_projects_findActiveMembersByProject = (req, res) => {
         if(err){
             if(err.kind === "not_found"){
                 return res.status(404).json({
-                    message: `Not found the Project with this id: ${req.params.id} or not exist.`
+                    message: `Not found the Project with this id: ${req.params.id}, maybe no exist or the response doesn't have rows to show`
                 })
             } else {
                 return res.status(500).json({

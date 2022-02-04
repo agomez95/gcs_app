@@ -1,8 +1,8 @@
 const pool = require('../database/db')
 
-const Methodology = (methodology) => {
+const Methodology = function(methodology) {
     this.methodname = methodology.methodname
-    this.state = methodology.state
+    if(methodology.status) this.status = methodology.status
 }
 
 Methodology.create = async(newMethod, result) => {
@@ -15,5 +15,17 @@ Methodology.create = async(newMethod, result) => {
         result(null, { id: res.insertId, ...newMethod })
     })
 }
-
+Methodology.getAll = async(result) => {
+    await pool.query('SELECT id, methodname FROM methodologys', (err,res) => {
+        if(err){
+            console.log('An error has occurred: ', err)
+            result(err, null)
+        }
+        if(res.length){           
+            result(null, res)
+            return
+        }
+        result({ kind: "not_found" }, null)
+    })
+}
 module.exports = Methodology

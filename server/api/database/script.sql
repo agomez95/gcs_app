@@ -82,7 +82,7 @@ DESCRIBE `methodologys`;
 CREATE TABLE IF NOT EXISTS `phases`(
     `id` INT(11) NOT NULL,
     `phasename` VARCHAR(80) NOT NULL,
-    `numberphase` INT(2) NOT NULL,
+    `phasenumber` INT(2) NOT NULL,
     `method_id` INT(11) NOT NULL,
     FOREIGN KEY (`method_id`) REFERENCES `methodologys`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
  );
