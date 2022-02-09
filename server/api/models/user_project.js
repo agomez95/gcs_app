@@ -86,4 +86,32 @@ User_Project.inactiveAllMemberByProject = async (projectId, result) => {
         result({ kind: "not_found" }, null)
     })
 }
+User_Project.activeMember = async (userId, result) => {
+    await pool.query('UPDATE users_projects SET status = 1 WHERE id = ?', userId, (err, res) => {
+        if(err){
+            console.log('An error has occurred: ', err)
+            result(err, null)
+        }
+        if(res.affectedRows == 0){
+            result({ kind: 'not_found' }, null)
+            return
+        }
+        console.log('The status of the Member is active now')
+        result(null, res[0])
+    })
+}
+User_Project.inactiveMember = async (userId, result) => {
+    await pool.query('UPDATE users_projects SET status = 0 WHERE id = ?', userId, (err, res) => {
+        if(err){
+            console.log('An error has occurred: ', err)
+            result(err, null)
+        }
+        if(res.affectedRows == 0){
+            result({ kind: 'not_found' }, null)
+            return
+        }
+        console.log('The status of the Member is inactive now: ')
+        result(null, res[0])
+    })
+}
 module.exports = User_Project

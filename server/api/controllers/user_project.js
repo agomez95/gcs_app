@@ -88,3 +88,35 @@ exports.users_projects_findInactiveMembersByProject = (req, res) => {
         } else res.send(data)
     })
 }
+
+exports.users_projects_activeMember_member = (req, res) => {
+    User_Project.activeMember(req.params.id, (err, data) => {
+        if(err){
+            if(err.kind === "not_found"){
+                return res.status(404).json({
+                    message: `Member not found with this Id ${req.params.id} or not exist.`
+                })
+            } else {
+                return res.status(500).json({
+                    message: 'Something is wrong while searching the Member whith Id: ' + req.params.id
+                })
+            }
+        } else res.send(data) 
+    })
+}
+
+exports.users_projects_inactiveMember_member = (req, res) => {
+    User_Project.inactiveMember(req.params.id, (err, data) => {
+        if(err){
+            if(err.kind === "not_found"){
+                return res.status(404).json({
+                    message: `Member not found with this Id ${req.params.id} or not exist.`
+                })
+            } else {
+                return res.status(500).json({
+                    message: 'Something is wrong while searching the Member whith Id: ' + req.params.id
+                })
+            }
+        } else res.send(data) 
+    })
+}

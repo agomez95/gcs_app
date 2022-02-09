@@ -45,7 +45,7 @@ User.updateProfile = async (userId, user, result) => {
             return
         }
         console.log('The User was updated')
-        result(null, { id: res.userId, firstname: user.firstname, lastname: user.lastname  })
+        result(null, { id: res.userId, firstname: user.firstname, lastname: user.lastname })
     })
 }
 User.updateEmail = async (userId, user, result) => {
@@ -86,7 +86,7 @@ User.inactiveUser = async (userId, result) => {
             result({ kind: 'not_found' }, null)
             return
         }
-        console.log('The status of the User now is inactive: ')
+        console.log('The status of the User is inactive now: ')
         result(null, res[0])
     })
 }
@@ -100,7 +100,7 @@ User.activeUser = async (userId, result) => {
             result({ kind: 'not_found' }, null)
             return
         }
-        console.log('The status of the User now is active: ')
+        console.log('The status of the User is active now: ')
         result(null, res[0])
     })
 }
